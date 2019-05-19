@@ -41,6 +41,9 @@ article{
     margin-top: 0px;
     flex-wrap: nowrap;
 }
+.postlink {
+    text-align: center;
+}
 .postimage {
     border: 3px solid #7735ad;
     margin: 12px;
