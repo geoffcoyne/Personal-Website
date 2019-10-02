@@ -1,2 +1,2 @@
 # Personal-Website
-My personal portfolio website. It is hosted here: http://geoffcoyne.com/index.html 
+My personal portfolio website. It's hosted here: http://geoffcoyne.com/
