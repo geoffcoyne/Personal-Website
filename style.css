@@ -1,5 +1,6 @@
 body {
-    background-color: #dbdbdb;
+    animation: articleflyinbody .75s linear 0s 1;
+    background-color: #ececec;
     color:#000000;
     font-family: sans-serif;
     margin: 0px;
@@ -9,7 +10,7 @@ header{
     display: flex;
     flex-direction: column;
     align-items:center; 
-    background-color: #ececec;
+    background-color: #ffffff;
     /*height: 135px;*/
 }
 article{
@@ -19,36 +20,46 @@ article{
     color:#7735ad;
     align-items: center;
 }
-@keyframes articleflyin {
-    0% {margin-top: 150vw;}
-    25% {margin-top: 70vw;}
-    50% {margin-top: 30vw;}
-    75% {margin-top: 10vw;}
-    100% {margin-top: 0px;}
-}
+
 .post {
-    background-color: #ececec;
+    background-color: #ffffff;
     margin: 24px;
     margin-bottom: 0px;
-    padding: 1.5vw;
+    padding: 15px, 1.5vw, 15px, 1.5vw;
     border-radius: 25px;
     max-width: 1000px;
 }
 .postcontent {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     justify-content: center;
     margin-top: 0px;
     flex-wrap: nowrap;
 }
 .postlink {
     text-align: center;
+    font-weight: bold; 
 }
+.postlink a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px;
+    background-color: #7735ad; 
+    border-radius: 10px;
+    margin: 3px;
+}
+.postlink a:hover {
+    animation: postlink .2s linear 0s 1;
+    background-color: #7735ad; 
+    border-radius: 10px;
+    color: #65ff98;
+}
+
 .postimage {
     border: 3px solid #7735ad;
     margin: 12px;
-    align-self: flex-start;
-    max-width: 30%;
+    align-self: center;
+    max-width: 40vh;
 }
 .image {
     width: 100%;
@@ -56,10 +67,11 @@ article{
 p {
     padding-bottom: 10px;
     margin: 0px;
+    text-align: center;
 }
 h1 {
     margin: 0px;
-    font-size: 375%;  
+    font-size: 3em;  
 }
 h1, h2, h3{
     color: #7735ad;
@@ -67,14 +79,14 @@ h1, h2, h3{
     text-transform: uppercase;
 }
 h2 {
-    font-size: 40px;
+    font-size: 2em;
     margin: .75vw;
 }
 #links svg {
     fill: #7735ad;
 }
 #links div {
-    width: 50px;
+    width: 2.8em;
     padding: 6px;
 }
 #links{
@@ -84,28 +96,21 @@ h2 {
 }
 .navbaritem a {
     text-decoration: none;
-    font-size: 200%;
+    font-size: 1.6em;
     text-transform: uppercase;
     font-weight: bold; 
     color: #7735ad;
 }
 .navbaritem {
     padding: 10px;
-    background-color: #ececec;
+    background-color: #ffffff;
 }
 .navbaritem:hover{
     animation: border .2s linear 0s 1;
     padding: 4px;
     border: 6px solid #7735ad
 }
-@keyframes border {
-    from {border: 0px solid #9683a5; padding: 10px;}
-    to {border: 6px solid #7735ad; padding: 4px;}
-}
-@keyframes borderactive {
-    from {border: 6px solid #7735ad; padding: 4px;}
-    to {border: 6px solid #7735ad; padding: 4px;}
-}
+
 #activepage:hover {
     animation: borderactive .2s linear 0s 1;
     padding: 4px;
@@ -114,13 +119,63 @@ h2 {
 #activepage {
     padding: 4px;
     border: 6px solid #7735ad;
+    color: #7735ad;
 }
 nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: #ececec;
+    flex-wrap: wrap;
+    background-color: #ffffff;
 }
 
+/*Animations*/
+
+@keyframes border {
+    from {border: 0px solid #7735ad; padding: 10px; color:}
+    to {border: 6px solid #7735ad; padding: 4px;}
+}
+
+@keyframes borderactive {
+    from {border: 6px solid #7735ad; padding: 4px;}
+    to {border: 6px solid #7735ad; padding: 4px;}
+}
+
+@keyframes postlink {
+    from {background-color: #7735ad; border-radius: 10px; color: #ffffff;}
+    to {background-color: #7735ad; border-radius: 10px; color: #65ff98;}
+}
+
+@keyframes articleflyin {
+    0% {
+        margin-top: 150vw;
+
+    }
+    25% {
+        margin-top: 70vw;
+    }
+    50% {
+        margin-top: 30vw;
+    }
+    75% {
+        margin-top: 10vw;
+    }
+    100% {
+        margin-top: 0px;
+    }
+}
+
+@keyframes articleflyinbody {
+    0% {
+        overflow: hidden;
+    }
+    90% {
+        overflow: hidden;
+    }
+    100% {
+        margin-top: 0px;
+        overflow: auto;
+    }
+}
 
 
