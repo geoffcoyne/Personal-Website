@@ -2,7 +2,7 @@ if (document.cookie != "") {
     document.getElementById("stylesheet-link").href = document.cookie;
 } else {
     document.cookie = "style-lightmode.css";
-    document.getElementById("stylesheet-link").href = document.cookie;
+    //document.getElementById("stylesheet-link").href = document.cookie;
 }
 function switchLights(){
     if (document.cookie == "style-lightmode.css") {
