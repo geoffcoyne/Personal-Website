@@ -43,14 +43,23 @@ article{
 }
 .postcontent {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     margin-top: 0px;
     flex-wrap: nowrap;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.posttext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 .postlink {
     text-align: center;
     font-weight: bold; 
+    margin: 1% 3px 2% 3px;
 }
 .postlink a {
     color: var(--item-bg-color);
@@ -67,13 +76,12 @@ article{
 }
 
 .postimage {
-    border: 3px solid #7735ad;
-    margin: 12px;
     align-self: center;
-    max-width: 40vh;
 }
 .image {
-    width: 100%;
+    border: 3px solid #7735ad;
+    margin: 2%;
+    max-width: 40vh;
 }
 p {
     padding-bottom: 10px;
@@ -91,7 +99,7 @@ h1, h2, h3{
 }
 h2 {
     font-size: 2em;
-    margin: .75vw;
+    margin: 1.75% 1% 1% .75%;
 }
 #links svg {
     fill: #7735ad;
@@ -188,5 +196,3 @@ nav {
         overflow: auto;
     }
 }
-
-

@@ -1,4 +1,4 @@
 # Personal-Website
-My personal portfolio website. Information is not up to date.
+My personal portfolio website. Last updated 5/10/2022.
 
-Link: https://cheese917.github.io/Personal-Website/
+Link: http://geoffcoyne.com
