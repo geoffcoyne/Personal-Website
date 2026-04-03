@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <nav>
             <div class="navbaritem"><a href="index.html">Portfolio</a></div>
             <div class="navbaritem"><a href="blogs.html">Blog</a></div>
-            <div class="navbaritem" id="activepage"><a href="about.html">About</a></div>
+            <div class="navbaritem" id="activepage"><a href="about.php">About</a></div>
         </nav>
         <div class="popup" id="contactpopup" style="visibility: hidden;">
             <div class="close-button" onclick="document.getElementById('contactpopup').style.visibility='hidden'">&times;</div>
