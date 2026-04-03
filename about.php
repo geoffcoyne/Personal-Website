@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $to      = 'geoffcoyne@geoffcoyne.com'; // change this to your email
+    $to      = trim(file_get_contents('/etc/myEmail'));
     $subject = "Contact form message from $name";
     $body    = "Name: $name\nEmail: $email\n\nMessage:\n$message";
     $headers = "From: noreply@geoffcoyne.com\r\nReply-To: $email\r\n";
