@@ -1,3 +1,27 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name    = htmlspecialchars(strip_tags(trim($_POST['name'])));
+    $email   = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $message = htmlspecialchars(strip_tags(trim($_POST['message'])));
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header('Location: about.php?status=error');
+        exit;
+    }
+
+    $to      = 'geoffcoyne@geoffcoyne.com'; // change this to your email
+    $subject = "Contact form message from $name";
+    $body    = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+    $headers = "From: noreply@geoffcoyne.com\r\nReply-To: $email\r\n";
+
+    if (mail($to, $subject, $body, $headers)) {
+        header('Location: about.php?status=sent');
+    } else {
+        header('Location: about.php?status=error');
+    }
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +37,15 @@
         <link id="stylesheet-link" rel="stylesheet" type="text/css" href="style-lightmode.css">
         <script src="script.js"></script>
     </head>
+    <script>
+        function openContactWindow() {
+            const popup = document.getElementById("contactpopup");
+            popup.style.visibility = "visible";
+        }
+        if (new URLSearchParams(window.location.search).has('status')) {
+            openContactWindow();
+        }
+    </script>
     <body>
         <header>
             <a onclick="switchLights()" title=" Flip the Light Switch"><h1>Geoffrey Coyne</h1></a>
@@ -26,7 +59,33 @@
             <div class="navbaritem"><a href="index.html">Portfolio</a></div>
             <div class="navbaritem"><a href="blogs.html">Blog</a></div>
             <div class="navbaritem" id="activepage"><a href="about.html">About</a></div>
-        </nav>  
+        </nav>
+        <div class="popup" id="contactpopup" style="visibility: hidden;">
+            <div class="close-button" onclick="document.getElementById('contactpopup').style.visibility='hidden'">&times;</div>
+            <form class="contact-form" action="about.php" method="POST">
+                <h2>Contact Me</h2>
+                <?php if (isset($_GET['status'])): ?>
+                    <?php if ($_GET['status'] === 'sent'): ?>
+                        <p style="color: green;">Message sent!</p>
+                    <?php else: ?>
+                        <p style="color: red;">Something went wrong. Please try again.</p>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <div class="form-row">
+                    <label>Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-row">
+                    <label>Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-row">
+                    <label>Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send</button>
+            </form>
+        </div>
         <article>
             <div class="post">
                 <h2>About Me</h2>
@@ -36,7 +95,7 @@
                         <div class="postimage">
                             <a href="media/about/me.jpg"><image src="media/about/me.jpg" class="image"></image></a>
                         </div>
-                        <p class="postlink"><a href="mailto: gmancoyne@gmail.com">gmancoyne@gmail.com</a></p> 
+                        <p class="postlink"><a type="button" onclick="openContactWindow()">Contact Me</a></p> 
                     </div> 
                 </div>
             </div>

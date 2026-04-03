@@ -14,6 +14,7 @@ body {
     font-family: sans-serif;
     margin: 0px;
     margin-bottom: 24px;
+    font-size: 12pt;
 }
 a {
     text-decoration: none;
@@ -130,7 +131,83 @@ h2 {
     padding: 4px;
     border: 6px solid #7735ad
 }
-
+div.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--item-bg-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+div.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #7735ad;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+.form-row label{
+    margin: 5px;
+    font-weight: bold;
+    font-size: 14pt;
+    align-self: flex-start;
+    color: #7735ad;
+}
+.form-row input, .form-row textarea {
+    padding: 10px;
+    margin: 5px;
+    border: 3px solid #7735ad;
+    color: #7735ad;
+    font-family: sans-serif;
+    font-size: 12pt;
+    border-radius: 5px;
+    width: 100%;
+    background-color: var(--item-bg-color);
+}
+.form-row textarea {
+    width: 300px;
+    height: 150px;
+}
+.form-row input {
+    width: 60%;
+}
+form button {
+    padding: 5px;
+    background-color: #7735ad;
+    color: var(--item-bg-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold; 
+    font-size: 12pt;
+    margin: 5px 3px 3px 3px;
+}
+button:hover {
+    animation: postlink .2s linear 0s 1;
+    background-color: #7735ad; 
+    border-radius: 10px;
+    color: #65ff98;
+}
 #activepage:hover {
     animation: borderactive .2s linear 0s 1;
     padding: 4px;
@@ -145,7 +222,6 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
     background-color: var(--item-bg-color);
 }
 
@@ -161,11 +237,10 @@ nav {
     to {border: 6px solid #7735ad; padding: 4px;}
 }
 
-@keyframes postlink {
+@keyframes postlink{
     from {background-color: #7735ad; border-radius: 10px; color: var(--item-bg-color);}
     to {background-color: #7735ad; border-radius: 10px; color: #65ff98;}
 }
-
 @keyframes articleflyin {
     0% {
         margin-top: 150vw;
@@ -195,5 +270,73 @@ nav {
     100% {
         margin-top: 0px;
         overflow: auto;
+    }
+}
+
+@media (max-device-width: 600px) {
+    body {
+        font-size: 1.6em;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+    h2 {
+        font-size: 2.5em;
+    }
+    .navbaritem a {
+        font-size: 2.5em;
+    }
+    .navbaritem:hover{
+        border: 10px solid #7735ad
+    }
+    #activepage {
+        border: 10px solid #7735ad;
+    }
+    #activepage:hover {
+        border: 10px solid #7735ad;
+    }
+    @keyframes border {
+        from {border: 0px solid #7735ad; padding: 10px;}
+        to {border: 10px solid #7735ad; padding: 4px;}
+    }
+
+    @keyframes borderactive {
+        from {border: 10px solid #7735ad; padding: 4px;}
+        to {border: 10px solid #7735ad; padding: 4px;}
+    }
+    .postlink a {
+        font-size: 1.33em;
+        padding: 12px 20px;
+        display: inline-block;
+    }
+    div.popup {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .form-row label {
+        font-size: 1.33em;
+        margin-bottom: 5px;
+    }
+    .form-row input, .form-row textarea {
+        width: 95%;
+        font-size: 1.17em;
+        border-width: 8px;
+    }
+    form button {
+        font-size: 1.8em;
+        padding: 12px;
+        width: 70%;
+    }
+    div.close-button {
+        font-size: 2.75em;
     }
 }
