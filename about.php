@@ -61,8 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="navbaritem" id="activepage"><a href="about.php">About</a></div>
         </nav>
         <div class="popup" id="contactpopup" style="visibility: hidden;">
-            <div class="close-button" onclick="document.getElementById('contactpopup').style.visibility='hidden'">&times;</div>
             <form class="contact-form" action="about.php" method="POST">
+                <div class="close-button" onclick="document.getElementById('contactpopup').style.visibility='hidden'">&times;</div>
                 <h2>Contact Me</h2>
                 <?php if (isset($_GET['status'])): ?>
                     <?php if ($_GET['status'] === 'sent'): ?>
